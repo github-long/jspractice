@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<base href="/practice/"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<style>
+		.ng-cloak{
+			display: block;
+		}
+	</style>
+</head>
+<body>
+<div ng-app ng-controller="customersController" >
+
+    <ul id="test-content">
+      <li ng-repeat="x in names">
+        {{ x.Name + ', ' + x.Country }}
+      </li>
+    </ul>
+
+</div>
+
+
+<script src="lib/Angular/angular.js"></script>
+<script src="lib/jquery/jquery.js"></script>
+<script src="lib/artTemplate/template.js"></script>
+<script id="test-li" type="text/html">
+	<li>{{isShow}}</li>
+</script>
+<script>
+
+    var globalConfig = {
+        path : "/practice"
+    };
+
+    function customersController($scope) {
+        $scope.names = [{ "Name" : "贾龙", "City" : "Berlin", "Country" : "Germany" },
+            { "Name" : "Berglunds snabbk枚p", "City" : "Lule氓", "Country" : "Sweden" },
+            { "Name" : "Centro comercial Moctezuma", "City" : "M茅xico D.F.", "Country" : "Mexico" },
+            { "Name" : "Ernst Handel", "City" : "Graz", "Country" : "Austria" },
+            { "Name" : "FISSA Fabrica Inter. Salchichas S.A.", "City" : "Madrid", "Country" : "Spain" },
+            { "Name" : "Galer铆a del gastr贸nomo", "City" : "Barcelona", "Country" : "Spain" },
+            { "Name" : "Island Trading", "City" : "Cowes", "Country" : "UK" },
+            { "Name" : "K枚niglich Essen", "City" : "Brandenburg", "Country" : "Germany" },
+            { "Name" : "Laughing Bacchus Wine Cellars", "City" : "Vancouver", "Country" : "Canada" },
+            { "Name" : "Magazzini Alimentari Riuniti", "City" : "Bergamo", "Country" : "Italy" },
+            { "Name" : "North/South", "City" : "London", "Country" : "UK" },
+            { "Name" : "Paris sp茅cialit茅s", "City" : "Paris", "Country" : "France" },
+            { "Name" : "Rattlesnake Canyon Grocery", "City" : "Albuquerque", "Country" : "USA" },
+            { "Name" : "Simons bistro", "City" : "K酶benhavn", "Country" : "Denmark" },
+            { "Name" : "The Big Cheese", "City" : "Portland", "Country" : "USA" },
+            { "Name" : "Vaffeljernet", "City" : "脜rhus", "Country" : "Denmark" },
+            { "Name" : "Wolski Zajazd", "City" : "Warszawa", "Country" : "Poland" }];
+    }
+
+    function art(){
+        var data ={
+            isShow : "贾龙"
+        }
+        var html = template("test-li",data);
+        $("#test-content").append(html);
+    }
+    //art();
+</script>
+
+</body>
+</html>
+		

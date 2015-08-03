@@ -1,0 +1,23 @@
+<html>
+	<head>
+		<title>sea-test</title>
+	</head>
+	<body>
+		<div id="content"></div>
+	
+		<script type="text/javascript" src="../components/sea/sea.js" id="seajsnode"></script>
+		
+		<script>
+			seajs.config({
+				base : "/WebStorm",
+				paths:{
+					root : "seajs"
+				},
+				alias:{
+					"jquery" : "root/jquery/jquery"
+				}
+			});
+			seajs.use("root/sea-modules/main");
+		</script>
+	</body>
+</html>
