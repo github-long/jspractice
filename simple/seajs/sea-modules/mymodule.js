@@ -13,6 +13,13 @@ define(function(require, exports, module){
 			}).fail(function () {
 				alert("fail");
 			});
+		},
+		builtUrl : function(){
+			var url = "";
+			with(location){
+				url = href;
+			}
+			return url;
 		}
 	};
 	

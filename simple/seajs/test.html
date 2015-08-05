@@ -4,20 +4,24 @@
 	</head>
 	<body>
 		<div id="content"></div>
+		<div></div>
+		<div></div>
+		<div></div>
 	
-		<script type="text/javascript" src="../components/sea/sea.js" id="seajsnode"></script>
+		<script type="text/javascript" src="../../lib/sea/sea.js" id="seajsnode"></script>
 		
 		<script>
 			seajs.config({
-				base : "/WebStorm",
+				base : "/practice",
 				paths:{
-					root : "seajs"
+					lib : "lib",
+					simple : "simple"
 				},
 				alias:{
-					"jquery" : "root/jquery/jquery"
+					"jquery" : "lib/jquery/jquery"
 				}
 			});
-			seajs.use("root/sea-modules/main");
+			seajs.use("simple/seajs/sea-modules/main");
 		</script>
 	</body>
 </html>
