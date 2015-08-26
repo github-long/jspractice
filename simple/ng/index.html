@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <base href="/practice">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .ng-cloak{
+            display: none;
+        }
+    </style>
+</head>
+<body >
+<div ng-app="myApp" class="ng-cloak">
+    <div ng-controller="thisCtrl">
+        <h1><span ng-bind="clock.now | date:'yyyy-MM-dd HH:mm:ss'"></span></h1>
+        <div>
+            <ul>
+                <li ng-repeat="x in names" ng-bind=" x.Name">
+                </li>
+            </ul>
+        </div>
+        <button id="clkBtn">click me</button>
+        <button id="clkBtn2">click me2</button>
+        <div >
+            <h4 ng>The simplest adding machine ever</h4>
+            <button ng-click="add(1)" class="button">Add</button>
+            <a ng-click="subtract(1)" class="button alert">Subtract</a>
+            <h4>Current count: <span ng-bind="counter">{{counter}}</span></h4>
+        </div>
+
+        <div ng-bind="myname"></div>
+
+        <!--<div my-D1 name="jialong">
+            <div >jialong</div>
+        </div>
+        <div my-D2></div>
+        <div my-D1></div>-->
+    </div>
+</div>
+<script src="/practice/lib/sea/sea.js"></script>
+<script src="/practice/simple/ng/modules/seaConfig.js"></script>
+</body>
+</html>

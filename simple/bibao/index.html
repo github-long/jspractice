@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+    function parent(){
+        var name = 'jialong';
+        function child(){
+            return name;
+        }
+        return child;
+    }
+    var childFun = parent();
+    alert(childFun());
+</script>
+</body>
+</html>

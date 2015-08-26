@@ -5,8 +5,6 @@ define(function(require, exports, module){
 //	test.seyHello();
 //	test.run("my message");
 //	test.testGet()
-	var elem = $("div");
-	alert(elem.length);
 
 	alert(test.builtUrl());
 });
