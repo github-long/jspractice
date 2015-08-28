@@ -6,8 +6,12 @@ angular.module('mainApp',['ui.router']).config(function ($stateProvider, $urlRou
         .state("PageTab.Page3", {
             url: "/Page3",
             templateUrl: "Page3.html",
-            controller: function($scope){
-                $scope.name="jialong";
+            controller: function($rootScope,$scope,$http){
+                if(!$scope.name){
+                    $http.get("/practice/simple/ng/names.json",{params:{param:1}})
+                        .success(function(response) {$scope.name = response[0].Name;});
+                }
+
             }
         });
 });
@@ -20,7 +24,7 @@ angular.module('testApp',['ui.router']).config(function ($stateProvider, $urlRou
 });
 var routerApp = angular.module('routerApp', ['mainApp','testApp']);
 routerApp.config(function ($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.when("", "/PageTab");
+    $urlRouterProvider.otherwise('PageTab');
 
     $stateProvider
         .state("PageTab", {
@@ -31,11 +35,20 @@ routerApp.config(function ($stateProvider, $urlRouterProvider) {
             url: "/Page1",
             templateUrl: "Page1.html"
         })
+        .state('Page4',{
+            url: "/Page4",
+            templateUrl: "Page4.html"
+        })
 });
-routerApp.controller('thisCtrl',function($scope){
+routerApp.controller('thisCtrl',function($rootScope,$scope){
     var values = [1,2,4];
     var log = [];
+    $scope.test = 'test';
+    $rootScope.test2 = 'test2';
     angular.forEach(values, function(value, key) {
         this.push(key + ': ' + value);
     }, log);
+}).controller('thisCtrl2',function($rootScope,$scope){
+    $scope.mainApp = "mainApp";
+    $rootScope.test3 = 'test2';
 });

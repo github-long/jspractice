@@ -26,7 +26,10 @@ define(['jquery','angular','dateFormat'],function(require, exports, module){
         }
         alert('myService');
     });
-    module.controller('MyController',function($scope,$http){
+    module.config(function(){
+        alert("fas");
+    });
+    module.controller('MyController',function($scope,$http,myService){
         $scope.clock = {
             now: new Date()
         };

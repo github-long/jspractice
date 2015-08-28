@@ -7,15 +7,22 @@
 <body>
 
 <script>
-    function parent(){
-        var name = 'jialong';
-        function child(){
-            return name;
+    function parent() {
+        this.name = 'jialong';
+        function child() {
+            return this.name;
         }
+
         return child;
     }
-    var childFun = parent();
-    alert(childFun());
+    /* var childFun = parent();
+     alert(childFun());*/
+    var persion = new Object();
+    persion.name = 'jialongd';
+    persion.getName = function(){
+        alert(this.name);
+        return this;
+    };
 </script>
 </body>
 </html>
