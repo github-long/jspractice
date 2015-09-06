@@ -6,6 +6,10 @@
 </head>
 <body>
 
+<div id="container"></div>
+
+<script src="/practice/lib/jquery/jquery.js"></script>
+
 <script>
     function parent() {
         this.name = 'jialong';
@@ -23,6 +27,14 @@
         alert(this.name);
         return this;
     };
+
+    $.get('/funportal/cmsChannel/api/getListPage.json').done(function(data){
+        var jsonStr = JSON.stringify(data);
+    //    $('#container').html(jsonStr);
+        document.getElementById("container").innerHTML = jsonStr;
+    });
+
+
 </script>
 </body>
 </html>
